@@ -79,17 +79,26 @@ obtainInstruction('steak', 0)
   .then((step7) => {
     document.querySelector("#steak").innerHTML += `<li>${step7}</li>`
     document.querySelector("#steakImg").removeAttribute("hidden")
+    document.querySelector("#steak").innerHTML += `<li>Steak is ready!</li>`
    
   })
  
 // Iteration 3 using async/await
-obtainInstruction ('makeBrocoli',0)
-  async function makeBroccoli() {
-    
+
+  /*async function makeBroccoli() {
+    const step0=await obtainInstruction ('broccoli',0)
+    document.querySelector("#broccoli").innerHTML += `<li>${step0}</li>`
   }
+  makeBroccoli();*/
 
-
-
+async function makeBroccoli() {
+for(let i=0;i<8;i++){
+  const step=await obtainInstruction ('broccoli',i)
+  document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`
+  }
+  document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
+}
+makeBroccoli();
 
 // Bonus 2 - Promise all
 // ...
