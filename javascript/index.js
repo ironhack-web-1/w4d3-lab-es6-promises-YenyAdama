@@ -92,13 +92,22 @@ obtainInstruction('steak', 0)
   makeBroccoli();*/
 
 async function makeBroccoli() {
-for(let i=0;i<8;i++){
+for(let i=0;i<7;i++){
   const step=await obtainInstruction ('broccoli',i)
   document.querySelector("#broccoli").innerHTML += `<li>${step}</li>`
   }
+  document.querySelector("#broccoliImg").removeAttribute("hidden");
   document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
 }
 makeBroccoli();
 
 // Bonus 2 - Promise all
-// ...
+async function makeBrussels() {
+  for(let i=0;i<8;i++){
+    const step=await obtainInstruction ('brusselsSprouts',i)
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
+    }
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels is ready!</li>`;
+  }
+  makeBrussels();
